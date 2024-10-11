@@ -1,0 +1,181 @@
+
+.business-partner-page {
+  text-align: center;
+  margin: 20px;
+}
+
+.business-partner-page .store-toggle {
+  margin-bottom: 20px;
+}
+
+.business-partner-page .character-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.business-partner-page .character {
+  width: 100px;
+  height: 120px;
+  position: relative;
+}
+
+.business-partner-page .character .head {
+  background-color: #f5a623;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.business-partner-page .character .eyes {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  width: 60px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.business-partner-page .character .eyes::before,
+.business-partner-page .character .eyes::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.business-partner-page .character .mouth {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 40px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 0 0 20px 20px;
+  transform: translateX(-50%);
+}
+
+.business-partner-page .character.closed .eyes::before,
+.business-partner-page .character.closed .eyes::after {
+  width: 15px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 5px;
+}
+
+.business-partner-page .character.open .eyes::before,
+.business-partner-page .character.open .eyes::after {
+  animation: blink 1s infinite;
+}
+
+.business-partner-page .character.open {
+  animation: jump 1s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.business-partner-page .glow-btn {
+  background-color: #f5a623;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.business-partner-page .glow-btn:hover {
+  box-shadow: 0px 0px 15px rgba(245, 166, 35, 0.7);
+}
+
+.business-partner-page .custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.business-partner-page .custom-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  position: relative; 
+  max-height: 80%;
+  font-weight: bolder;
+}
+
+.business-partner-page .custom-modal-title {
+  margin-bottom: 20px;
+}
+
+.business-partner-page .menu-items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  text-align: left;
+  max-height: 300px; 
+  overflow-y: auto; 
+  padding-right: 10px; 
+}
+
+.business-partner-page .submit-btn {
+  background-color: #f5a623;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.business-partner-page .close-custom-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+@media (max-width: 480px){
+  .business-partner-page h2{
+    font-size: 2rem;
+  }
+  .business-partner-page .custom-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative; 
+    max-height: 80%; 
+    font-size: small;
+    font-weight: bolder;
+  }
+  
+}
