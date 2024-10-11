@@ -12,7 +12,7 @@ const menuItems = [
 const Character = ({ storeStatus, isUpdating }) => {
   return (
     <div className={`character-container ${storeStatus} ${isUpdating ? 'updating' : ''}`}>
-      <div className="character">
+      <div className={`character ${storeStatus}`}>
         <div className="head">
           <div className="eyes"></div>
           <div className="mouth"></div>
@@ -30,15 +30,15 @@ const BusinessPartnerPage = () => {
   const [selectAll, setSelectAll] = useState(false);
 
 
-  // Load storeStatus from localStorage on page load
+  // Loading storeStatus from localStorage on page 
   useEffect(() => {
     const savedStatus = localStorage.getItem('storeStatus');
     if (savedStatus) {
-      setStoreStatus(savedStatus); // Persist the store status
+      setStoreStatus(savedStatus);
     }
   }, []);
 
-  // Load selected menu items from localStorage if store is open
+  // Loading selected menu items from localStorage if store is open
   useEffect(() => {
     if (storeStatus === 'open') {
       const savedMenu = JSON.parse(localStorage.getItem('kdChatsMenu')) || [];
@@ -46,13 +46,13 @@ const BusinessPartnerPage = () => {
     }
   }, [storeStatus]);
 
-  // Update storeStatus in localStorage whenever it changes manually
+  // Update storeStatus in localStorage only  when it changes manually
   const handleStoreStatusChange = (status) => {
     setStoreStatus(status);
-    localStorage.setItem('storeStatus', status); // Persist store status
+    localStorage.setItem('storeStatus', status); 
     if (status === 'closed') {
-      setSelectedItems([]); // Clear selected items if store is closed
-      localStorage.setItem('kdChatsMenu', JSON.stringify([])); // Clear localStorage as well
+      setSelectedItems([]); 
+      localStorage.setItem('kdChatsMenu', JSON.stringify([])); 
     }
   };
 
@@ -67,20 +67,20 @@ const BusinessPartnerPage = () => {
   const handleSubmit = () => {
     localStorage.setItem('kdChatsMenu', JSON.stringify(selectedItems));
     alert('Items updated successfully!');
-    setIsCustomModalOpen(false); // Close modal after submission
-    setIsUpdating(false); // Stop updating status
+    setIsCustomModalOpen(false); 
+    setIsUpdating(false); 
   };
 
   const handleUpdateClick = () => {
-    setIsUpdating(true); // Set updating status
-    setIsCustomModalOpen(true); // Open custom modal
+    setIsUpdating(true); 
+    setIsCustomModalOpen(true); 
   };
 
   return (
     <div className="business-partner-page">
       <h2>List of items available right now at your store</h2>
 
-      {/* Store status toggles */}
+      
       <div className="store-toggle">
         <label>
           <input
@@ -112,7 +112,7 @@ const BusinessPartnerPage = () => {
             Update Items for This Moment
           </button>
 
-          {/* Custom Modal for updating menu items */}
+          {/*  Modal for updating menu items */}
           {isCustomModalOpen && (
             <div className="custom-modal">
               <div className="custom-modal-content">
@@ -120,7 +120,7 @@ const BusinessPartnerPage = () => {
                 <h3 className="custom-modal-title">Update Menu Items</h3>
 
                 <form className="custom-modal-form">
-                  {/* Two-column layout for menu items */}
+                  
                   <div>
                     <input
                       type="checkbox"

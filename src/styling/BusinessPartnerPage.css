@@ -37,6 +37,18 @@
   display: flex;
   justify-content: space-between;
 }
+.business-partner-page .character.closed {
+  animation: none; /* No animation when closed */
+}
+
+.business-partner-page .character.open .eyes::before,
+.business-partner-page .character.open .eyes::after {
+  animation: blink 1s infinite;
+}
+
+.business-partner-page .character.open {
+  animation: jump 1s infinite ease-in-out;
+}
 
 .business-partner-page .character .eyes::before,
 .business-partner-page .character .eyes::after {

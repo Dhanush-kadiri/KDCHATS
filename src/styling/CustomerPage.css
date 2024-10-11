@@ -3,7 +3,7 @@ General styling
   font-family: Arial, sans-serif;
 }
 
-/* Navigation Bar Styling */
+/* Navigation Bar  */
 .navbar {
   position: fixed;
   top: 0;
@@ -36,7 +36,7 @@ General styling
   text-decoration: underline;
 }
 
-/* Parallax Section Styling */
+/* Parallax Section  */
 .parallax-section {
   position: relative;
   height: 100vh;
@@ -182,12 +182,12 @@ p{
   position: relative;
 }
 
-/* Scrollable items list */
+/* Scrollable items */
 ul {
-  max-height: 200px; /* Limit the height of the items list */
-  overflow-y: auto; /* Enable vertical scrolling if items exceed the height */
-  margin-bottom: 20px; /* Add some margin to separate from booking conditions */
-  padding-right: 10px; /* Ensure padding so scrollbar doesn't overlap text */
+  max-height: 200px; 
+  overflow-y: auto; 
+  margin-bottom: 20px; 
+  padding-right: 10px; 
 }
 
 
