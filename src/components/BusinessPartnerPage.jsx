@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useRef } from 'react';
 import '../styling/BusinessPartnerPage.css';
+import Peer from 'simple-peer';
 
 const menuItems = [
   'Paanipuri - 25/-', 'Masala Poori - 25/-', 'Chat Masala - 30/-', 'Aalo Chat/Cutlet - 30/-', 'Gobi Manchurian (mini) - 25/-',
@@ -7,6 +9,7 @@ const menuItems = [
   'Egg Fried Rice -60/-', 'Double Egg Fried Rice - 70/-', 'Egg Gobi Rice - 70/-', 'Chicken Fried Rice - 90/-', 'Noodles - 60/-',
   'Egg Noodles - 70/-', 'Chicken Noodles - 90/-', 'Bhel Poori - 30/-', 'Dahi Poori - 30/-'
 ];
+
 
 // Character component
 const Character = ({ storeStatus, isUpdating }) => {
@@ -29,6 +32,29 @@ const BusinessPartnerPage = () => {
   const [isCustomModalOpen, setIsCustomModalOpen] = useState(false);
   const [selectAll, setSelectAll] = useState(false);
 
+
+  const peerRef = useRef(null);
+
+  useEffect(() => {
+    // Create a WebRTC peer connection
+    const peer = new Peer({ initiator: true, trickle: false });
+    peerRef.current = peer;
+
+    // Handle incoming data from other devices
+    peer.on('data', (data) => {
+      const { storeStatus, selectedItems } = JSON.parse(data.toString());
+      setStoreStatus(storeStatus);
+      setSelectedItems(selectedItems);
+    });
+
+    peer.on('connect', () => {
+      console.log('Connected to another device!');
+    });
+
+    return () => {
+      peer.destroy(); // Clean up the peer connection
+    };
+  }, []);
 
   // Loading storeStatus from localStorage on page 
   useEffect(() => {
