@@ -5,7 +5,7 @@ const menuItems = [
   'Paanipuri - 25/-', 'Masala Poori - 25/-', 'Chat Masala - 30/-', 'Aalo Chat/Cutlet - 30/-', 'Gobi Manchurian (mini) - 25/-',
   'Gobi Manchurian (full) - 50/-', 'Dry Gobi (mini) - 25/-', 'Dry Gobi (full) - 50/-', 'Fried Rice - 50/-', 'Gobi Fried Rice - 60/-',
   'Egg Fried Rice -60/-', 'Double Egg Fried Rice - 70/-', 'Egg Gobi Rice - 70/-', 'Chicken Fried Rice - 90/-', 'Noodles - 60/-',
-  'Egg Noodles - 70/-', 'Chicken Noodles - 90/-', 'Bhel Poori - 30/-', 'Dahi Poori - 30/-'
+  'Egg Noodles - 70/-', 'Chicken Noodles - 95/-', 'Bhel Poori - 30/-', 'Dahi Poori - 30/-'
 ];
 
 // Character component
